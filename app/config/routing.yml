@@ -1,0 +1,15 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+#youwe_file_manager:
+#    resource: "@YouweFileManagerBundle/Resources/config/routing.yml"
+#    options:
+#        expose: true
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin

@@ -1,0 +1,101 @@
+{% extends 'base.bs.html.twig' %}
+
+{% block body %}
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animate.css">    
+    {% if (js is defined) %}{{ js|raw }}{% endif %}
+    <div id="wrapper">
+        <div id="container">
+                    {{ base_dir | raw}}
+        </div>
+    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <div class="well" style="margin-top: 10%;">
+                                <h3>Send me a message</h3>
+                                <form role="form" id="contactForm" data-toggle="validator" class="shake">
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <label for="name" class="h4">Name</label>
+                                            <input  value="a@a" type="text" class="form-control" id="name" placeholder="Enter name" required data-error="NEW ERROR MESSAGE">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="email" class="h4">Email</label>
+                                            <input  value="a@a" type="email" class="form-control" id="email" placeholder="Enter email" required>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="category" class="h4">category</label>
+                                            <!--<input type="text" class="form-control" id="name" placeholder="Enter name" required data-error="NEW ERROR MESSAGE">-->
+                                            <select class="form-control">
+                                                <option value="volvo">Volvo</option>
+                                                <option value="saab">Saab</option>
+                                                <option value="mercedes">Mercedes</option>
+                                                <option value="audi">Audi</option>
+                                            </select>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message" class="h4 ">Message</label>
+                                        <textarea  name="editor1" id="message" class="form-control" rows="5" placeholder="Enter your message" required>a@a</textarea>
+                                        <script>
+                                //CKEDITOR.replace( 'editor1',{
+                                    //filebrowserBrowseUrl: '/browser/browse.php',
+                        //filebrowserImageBrowseUrl: '/browser/browse.php?type=Images',
+                                            //filebrowserUploadUrl: '/uploader/upload.php',
+                                            //filebrowserImageUploadUrl: '/uploader/upload.php?type=Images'
+                                            //} );
+                                        </script>
+                                        <script>
+                                            var roxyFileman = '/contact/fileman/index.html?integration=ckeditor';
+                                            //$(function(){
+                                            //CKEDITOR.replace('editor1', {filebrowserBrowseUrl: roxyFileman,
+                                            //    filebrowserImageBrowseUrl: roxyFileman + '&type=image',
+                                            //    removeDialogTabs: 'link:upload;image:upload'});
+                                            //});
+                                        </script>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="/js/validator.min.js"></script>
+        <script type="text/javascript" src="/js/form-scripts.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
+    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+    h1 { font-size: 36px; }
+    h2 { font-size: 21px; margin-bottom: 1em; }
+    p { margin: 0 0 1em 0; }
+    a { color: #0000F0; }
+    a:hover { text-decoration: none; }
+    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
+    #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
+    #container { padding: 2em; }
+    #welcome, #status { margin-bottom: 2em; }
+    #welcome h1 span { display: block; font-size: 75%; }
+    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
+    #icon-book { display: none; }
+
+    @media (min-width: 768px) {
+        #wrapper { width: 80%; margin: 2em auto; }
+        #icon-book { display: inline-block; }
+        #status a, #next a { display: block; }
+
+        @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+        .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
+    }
+</style>
+{% endblock %}

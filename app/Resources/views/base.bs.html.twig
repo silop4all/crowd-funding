@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
+
+        <!--<link rel="stylesheet" type="text/css" href="http://83.235.169.221:8025/static/app/content/themes/bootstrap-lolipop-square-skin.css" />-->
+        <!--<link rel="stylesheet" type="text/css" href="http://83.235.169.221:8025/static/app/content/footer.css" />-->
+        <!--<link rel="stylesheet" type="text/css" href="http://83.235.169.221:8025/static/app/content/multiselect-bootstrap/bootstrap-select.min.css" />-->
+        <!--<script rel="stylesheet" type="text/css"  src="http://83.235.169.221:8025/static/app/content/jssor-carousel/jssor-carousel.css"></script>-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}" >
+        <script src="//cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>
+<style>
+xxxx.navbar {min-height: 80px;}
+xxxx.navbar-brand {padding: 0 15px; height: 80px; line-height: 80px;}
+</style>
+        {% block stylesheetsend %}{% endblock %}
+    </head>
+    <!--<body>-->
+    <body style="background-color:rgba(223, 225, 225, 0.72);">
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

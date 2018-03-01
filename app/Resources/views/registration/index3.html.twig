@@ -1,0 +1,110 @@
+{% extends 'base.bs.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
+
+{% block body %}
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" href="#"><img width="29px" height="24px" src="http://83.235.169.221:8025/media/app/aod/logos/logo2.png" alt="Prosperity 4 All logo"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li  {{ projects1 |default('')|raw}}><a href="/">Home</a></li>
+                    <!--<li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 1-1</a></li>
+                            <li><a href="#">Page 1-2</a></li>
+                            <li><a href="#">Page 1-3</a></li>
+                        </ul>
+                    </li>-->
+                    <li {{ projects2 |default('') |raw}}><a href="/projects">Discover a Project</a></li>
+                    <li {{ projects3 |default('')|raw}}><a href="/project/new">Start a Project</a></li>
+                    <li {{ projects4 |default('')|raw}}><a href="/proposal/new">Propose a Project</a></li>
+                    <li {{ projects5 |default('')|raw}}><a href="/proposals">View Requests</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        {{ body |default('no content')|raw}}
+    </div>
+    <div class="container">
+        <h2>Project</h2>
+        {{ form_start(form) }}
+            {{ form_row(form.title) }}
+            {{ form_row(form.summary) }}
+            {{ form_row(form.amount) }}
+            {{ form_row(form.content) }}
+
+            <!--<div class="form-group">
+                <label class="control-label col-sm-2" for="name">Project Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" placeholder="Enter project name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="summary">Summary:</label>
+                <div class="col-sm-10">          
+                    <input type="text" class="form-control" id="summary" placeholder="A short descrition">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="amount">Amount:</label>
+                <div class="col-sm-10">          
+                    <input type="text" class="form-control" id="amount" placeholder="Amount to pledge">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="content">Description:</label>
+                <div class="col-sm-10">          
+                    <textarea class="form-control" rows="5" id="content"></textarea>
+                </div>
+            </div>-->
+            <!--<div class="form-group">        
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label><input type="checkbox"> Remember me</label>
+                    </div>
+                </div>
+            </div>-->
+            <div class="form-group">        
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="cancel" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+    </div>
+    <div style=" background-color:#131306 ;color:white; padding-top:1.2em;padding-bottom:1.2em" role="contentinfo">
+        <div class="container">
+            <div style="margin-top:10px">
+                <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12" >
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1 " >
+                        <img class="pull-right" alt="European commission logo" src="http://83.235.169.221:8025/media/app/aod/eu/eu.png"/>
+                    </div>
+                    <div class="col-lg-11 col-sm-11 col-md-11 col-xs-11 pull-left" >
+                        <span class="pull-left">
+                            Prosperity4All - Ecosystem infrastructure for smart and personalised inclusion and PROSPERITY for ALL stakeholders<br> 
+                            This project has received funding from the European Union’s Seventh Programme for research, technological development and demonstration under grant agreement, No 610510
+                        </span>
+                        <span><span class="fa fa-copyright"></span> 2015 - 2016  <a href="http://www.prosperity4all.eu/" target="_blank" style="color: white">Prosperity4All</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

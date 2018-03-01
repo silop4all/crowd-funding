@@ -1,0 +1,23 @@
+{% extends 'default/index2.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
+
+{% block bodyinner %}
+    <div class="container">
+        <h1>{{project.name}}</h1>
+        <p>by </p>        
+    </div>
+    <div class="container">
+        <h1>Support this Projectt</h1>
+        {{ form_start(form) }}
+        {{ form_row(form.amount) }}
+        <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Continue</button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>        
+{% endblock %}
+
+{% block stylesheetsend %}
+{% endblock %}

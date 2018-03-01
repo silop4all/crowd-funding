@@ -1,0 +1,96 @@
+{% extends 'base.bs.html.twig' %}
+
+{% block body %}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="flash-notice">
+            {{ flash_message }}
+        </div>
+    {% endfor %}    
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img width="29px" height="24px" src="http://83.235.169.221:8025/media/app/aod/logos/logo2.png" alt="Prosperity 4 All logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="{% if app.request.attributes.get('_route') == 'homepage' %}active{% endif %}"><a href="/">Home</a></li>
+                    <li class="{% if app.request.attributes.get('_route') == 'projects' %}active{% endif %}"><a href="{{ path('projects') }}">Discover a Project</a></li>
+                    <li class="{% if app.request.attributes.get('_route') == 'projectnew' %}active{% endif %}"><a href="{{ path('projectnew') }}">Start a Project</a></li>
+                    <li class="{% if app.request.attributes.get('_route') == 'proposalnew' %}active{% endif %}"><a href="{{ path('proposalnew') }}">Propose a Project</a></li>
+                    <li class="{% if app.request.attributes.get('_route') == 'proposals' %}active{% endif %}"><a href="{{ path('proposals') }}">View Proposals</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if logged() == false %}
+                        <li><a href="{{ path('signup') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="{{ path('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        {% else %}
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" href="#">{{username()}} <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('me') }}">About Me</a></li>
+                                <li><a href="{{ path('myprojects') }}">My Projects</a></li>
+                                <li><a href="{{ path('myproposals') }}">My Requests</a></li>
+                                <li><a href="{{ path('myoffers') }}">My Offers</a></li>
+                                <li><a href="{{ path('mypledges') }}">My Pledges</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                        {% endif %}                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% block bodyinner %}{% endblock %}
+<div class="container">
+    {{ body |default(' ')|raw}}
+</div>
+
+<footer class="footer">
+    <div style=" background-color:#131306 ;color:white; padding-top:1.2em;padding-bottom:1.2em" role="contentinfo">
+        <div class="container">
+            <div style="margin-top:10px">
+                <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12" >
+                    <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1 " >
+                        <img class="pull-right" alt="European commission logo" src="http://83.235.169.221:8025/media/app/aod/eu/eu.png"/>
+                    </div>
+                    <div class="col-lg-11 col-sm-11 col-md-11 col-xs-11 pull-left" >
+                        <span class="pull-left">
+                            Prosperity4All - Ecosystem infrastructure for smart and personalised inclusion and PROSPERITY for ALL stakeholders<br> 
+                            This project has received funding from the European Union’s Seventh Programme for research, technological development and demonstration under grant agreement, No 610510
+                        </span>
+                        <span><span class="fa fa-copyright"></span> 2015 - 2016  <a href="http://www.prosperity4all.eu/" target="_blank" style="color: white">Prosperity4All</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+</footer>
+{% endblock %}
+
+{% block stylesheetsend %}
+    <style>
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        body {
+            /* Margin bottom by footer height */
+            margin-bottom: 130px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 130px;
+            background-color: #f5f5f5;
+        }
+    </style>
+{% endblock %}

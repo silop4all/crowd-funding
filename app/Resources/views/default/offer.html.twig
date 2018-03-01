@@ -1,0 +1,25 @@
+{% extends 'default/index2.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
+
+{% block bodyinner %}
+    <div class="container">
+        <h1>{{project.title}}</h1>
+        <p>by {{project.user.surname}} {{project.user.name}}</p>        
+    </div>
+    <div class="container">
+        <h2>Make an offer for this project</h2>
+        {{ form_start(form) }}
+        {{ form_row(form.amount) }}
+        <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10">
+                {{ form_widget(form.submit) }}
+                {{ form_widget(form.cancel) }}
+  
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>        
+{% endblock %}
+
+{% block stylesheetsend %}
+{% endblock %}
